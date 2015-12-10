@@ -1,0 +1,23 @@
+{
+  "name": "toy-robot",
+  "version": "1.0.0",
+  "description": "toy robot",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://juancancela@github.com/juancancela/toy-robot.git"
+  },
+  "keywords": [
+    "toy",
+    "robot"
+  ],
+  "author": "Juan Carlos Cancela <cancela.juancarlos@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juancancela/toy-robot/issues"
+  },
+  "homepage": "https://github.com/juancancela/toy-robot#readme"
+}
