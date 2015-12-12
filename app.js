@@ -1,28 +1,13 @@
-var fs = require('fs');
+var Robot = require('./domain/Robot').Robot;
+var Table = require('./domain/Table').Table;
+var inputPath = process.argv[2] || 'input.txt';
+var commands = require('./utils/utils').commands;
 
-const DEFAULT_PATH = 'input.txt';
+(function run(){
+    var robot = new Robot(new Table(4,4));
 
-function transformFileInput(inputPath) {
-    var inputFile = fs.readFileSync( inputPath || DEFAULT_PATH, 'utf8' ).split("\n");
-    var input = [];
-
-    inputFile.forEach(function(line){
-        input.push({
-            operation : line.split(" ")[0].toLowerCase(),
-            params    : line.slice(1)
-        })
+    commands(inputPath).forEach(function (command){
+       robot.execute(command.name, command.params);
     });
+})();
 
-    return input;
-}
-
-function run(inputPath){
-    var robot;
-    transformFileInput(inputPath).forEach(function (input){
-
-    });
-}
-
-module.exports = {
-    run: run
-};

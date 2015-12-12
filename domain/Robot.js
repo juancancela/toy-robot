@@ -10,55 +10,65 @@ class Robot {
     }
 
     execute(command, params) {
-        switch(command){
+        if (this._isNotPlaced(command)) return;
+
+        switch (command) {
             case 'place':
-                this._updatePosition(new Position(params[0], params[1]));
-                this._direction = params[2];
+                this._updatePos(parseInt(params[0]), parseInt(params[1]));
+                this._dir = params[2];
                 break;
 
             case 'move' :
-                switch (this._direction) {
-                    case 'NORTH' : this._updatePosition(new Position(this._position.x, this._position.y + 1)); break;
-                    case 'EAST'  : this._updatePosition(new Position(this._position.x + 1, this._position.y)); break;
-                    case 'SOUTH' : this._updatePosition(new Position(this._position.x, this._position.y - 1)); break;
-                    case 'WEST'  : this._updatePosition(new Position(this._position.x - 1, this._position.y)); break;
+                switch (this._dir) {
+                    case 'NORTH' :
+                        this._updatePos(this._pos.x, this._pos.y + 1);
+                        break;
+                    case 'EAST'  :
+                        this._updatePos(this._pos.x + 1, this._pos.y);
+                        break;
+                    case 'SOUTH' :
+                        this._updatePos(this._pos.x, this._pos.y - 1);
+                        break;
+                    case 'WEST'  :
+                        this._updatePos(this._pos.x - 1, this._pos.y);
+                        break;
                 }
                 break;
 
             case 'left' :
-                var index = DIRECTIONS.indexOf(this._direction) - 1;
+                var index = DIRECTIONS.indexOf(this._dir) - 1;
                 if (index < 0) index = DIRECTIONS.length - 1;
-                this._direction = DIRECTIONS[index];
+                this._dir = DIRECTIONS[index];
                 break;
 
             case 'right':
-                var index = DIRECTIONS.indexOf(this._direction) + 1;
+                var index = DIRECTIONS.indexOf(this._dir) + 1;
                 if (index >= DIRECTIONS.length) index = 0;
-                this._direction = DIRECTIONS[index];
+                this._dir = DIRECTIONS[index];
                 break;
 
             case 'report':
-                return "[" + this._x + "," + this._y + "," + this._direction + "]";
+                console.log (this._pos.x + "," + this._pos.y + "," + this._dir);
         }
     }
 
     get position() {
-        return this._position;
+        return this._pos;
     }
 
     get direction() {
-        return this._direction;
+        return this._dir;
     }
 
-    _updatePosition(position) {
-        if (this._table.isValidPosition(position)) {
-            this._position = position;
-        } else {
-            throw new Error("INVALID POSITION");
-        }
+    _updatePos(x, y) {
+        if (this._table.isWithinTable(x, y)) this._pos = new Position(x, y);
+    }
+
+    _isNotPlaced(command) {
+        return !this._pos && command !== 'place';
     }
 }
 
 module.exports = {
-    Robot        : Robot
+    Robot: Robot
 };

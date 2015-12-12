@@ -19,8 +19,8 @@ class Table {
         return this._y;
     }
 
-    isValidPosition(position){
-        return position.x <= this._x && position.y <= this._y;
+    isWithinTable(x, y){
+        return x <= this._x && x >= 0 && y <= this._y && y >= 0;
     }
 }
 

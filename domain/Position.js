@@ -18,6 +18,7 @@ class Position {
     get y() {
         return this._y;
     }
+
 }
 
 module.exports = {

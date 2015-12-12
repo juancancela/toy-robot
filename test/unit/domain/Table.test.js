@@ -56,14 +56,14 @@ describe('Table class tests', function () {
         var table = objs.validTable();
         var validPosition = objs.validPosition();
 
-        assert.equal(table.isValidPosition(validPosition), true);
+        assert.equal(table.isWithinTable(validPosition.x, validPosition.y), true);
     });
 
     it('should be an invalid position if its not within table limits', function () {
         var table = objs.validTable();
         var invalidPosition = objs.validPositionNotWithinLimits();
 
-        assert.equal(table.isValidPosition(invalidPosition), false);
+        assert.equal(table.isWithinTable(invalidPosition), false);
     });
 });
 

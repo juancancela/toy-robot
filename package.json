@@ -6,7 +6,12 @@
   "scripts": {
     "start": "node app.js",
     "test": "node node_modules/mocha/bin/mocha --recursive test",
-    "coverage": "node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test/unit/domain/*.test.js --recursive -- -u exports -R spec && open coverage/lcov-report/index.html"
+    "coverage": "node node_modules/istanbul/lib/cli.js cover node_modules/mocha/bin/_mocha test/unit/domain/*.test.js --recursive -- -u exports -R spec && open coverage/lcov-report/index.html",
+    "example_a": "node app.js test/examples/example_a.txt",
+    "example_b": "node app.js test/examples/example_b.txt",
+    "example_c": "node app.js test/examples/example_c.txt",
+    "additional_a": "node app.js test/examples/additional_a.txt",
+    "additional_b": "node app.js test/examples/additional_b.txt"
   },
   "repository": {
     "type": "git",
