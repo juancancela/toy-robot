@@ -3,7 +3,7 @@ var _ = require('lodash');
 
 class Table {
     constructor(x, y) {
-        if (_.isNumber(x) && x > 0 && _.isNumber(y) && y > 0) {
+        if (_.isNumber(x) && x >= 0 && _.isNumber(y) && y >= 0) {
             this._x = x;
             this._y = y;
         } else {

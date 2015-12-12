@@ -1,20 +1,24 @@
 var fs = require('fs');
-var readline = require('readline');
-var Robot = require('./domain/Robot').Robot;
 
 const DEFAULT_PATH = 'input.txt';
 
-function Command(operation){
+function transformFileInput(inputPath) {
+    var inputFile = fs.readFileSync( inputPath || DEFAULT_PATH, 'utf8' ).split("\n");
+    var input = [];
 
-}
+    inputFile.forEach(function(line){
+        input.push({
+            operation : line.split(" ")[0].toLowerCase(),
+            params    : line.slice(1)
+        })
+    });
 
-function getFile(inputPath) {
-    return fs.readFileSync( inputPath || DEFAULT_PATH, 'utf8' ).split("\n");
+    return input;
 }
 
 function run(inputPath){
-    var commands = [];
-    getCommand(inputPath).forEach(function (command){
+    var robot;
+    transformFileInput(inputPath).forEach(function (input){
 
     });
 }
