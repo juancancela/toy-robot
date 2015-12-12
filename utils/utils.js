@@ -8,7 +8,7 @@ var fs = require('fs');
  * @returns {Array} commands
  */
 function commands(inputPath) {
-    var inputFile = fs.readFileSync( process.env.TOYROBOT_PATH || inputPath, 'utf8').split("\n");
+    var inputFile = fs.readFileSync(inputPath, 'utf8').split("\n");
     var input = [];
 
     inputFile.forEach(function (line) {

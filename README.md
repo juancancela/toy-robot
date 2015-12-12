@@ -23,7 +23,7 @@ $ ./configure && make && make install
 $ node -v
 ```  
 
-## Installing application
+## Installing Toy Robot application
 
 
 * On application root path, run following command to download application dependencies
