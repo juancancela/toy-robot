@@ -35,7 +35,7 @@ $ npm install
 
 * On application root path, run following command to execute a file with commands
 ```sh
-$ npm app.js <FILE_PATH>
+$ npm start <FILE_PATH>
 ```
 (by default will execute input.txt file)
 
