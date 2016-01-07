@@ -1,5 +1,7 @@
 # Toy Robot
 
+Simplistic example of a robot walking around a table from entrance up to the exit.
+
 ## System Requirements
 * NodeJS 4.2.3 LTS
 * Tested under Mac OSX 10.11.1 (El Capitan) and Fedora 23
